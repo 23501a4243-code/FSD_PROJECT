@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Feast - Share Food, Spread Joy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #FF9800;
+            --light: #F5F5F5;
+            --dark: #333;
+            --gray: #757575;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --danger: #F44336;
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --requested: #2196F3;
+            --bronze: #CD7F32;
+            --silver: #C0C0C0;
+            --gold: #FFD700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--dark);
+            border: 1px solid var(--light-gray);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-gray);
+        }
+
+        .btn-request {
+            background-color: var(--requested);
+            color: var(--white);
+        }
+
+        .btn-request:hover {
+            background-color: #1976D2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 50px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--white);
+            padding: 60px 20px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .stats-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: var(--light);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .stat-card p {
+            color: var(--gray);
+        }
+
+        /* Top Donors Section */
+        .top-donors-section {
+            background-color: var(--white);
+            padding: 60px 20px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-donors-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .donors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .donor-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .donor-card.gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--gold);
+        }
+
+        .donor-card.silver::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--silver);
+        }
+
+        .donor-card.bronze::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--bronze);
+        }
+
+        .donor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .donor-rank {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .rank-1 {
+            background-color: rgba(255, 215, 0, 0.2);
+            color: var(--gold);
+        }
+
+        .rank-2 {
+            background-color: rgba(192, 192, 192, 0.2);
+            color: var(--silver);
+        }
+
+        .rank-3 {
+            background-color: rgba(205, 127, 50, 0.2);
+            color: var(--bronze);
+        }
+
+        .donor-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+
+        .donor-stat {
+            text-align: center;
+        }
+
+        .donor-stat h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .donor-stat p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Auth Pages */
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 40px 20px;
+        }
+
+        .auth-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+        }
+
+        .auth-card h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .role-selection {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .role-option {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .role-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        .role-option i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Dashboard */
+        .dashboard {
+            padding: 40px 20px;
+            min-height: 70vh;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-message {
+            flex: 1;
+        }
+
+        .welcome-message h2 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .food-form {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .food-form h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .food-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-card.expired {
+            opacity: 0.7;
+        }
+
+        .food-card.requested {
+            border-left: 5px solid var(--requested);
+        }
+
+        .food-image {
+            height: 200px;
+            background-color: var(--light-gray);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .food-details {
+            padding: 20px;
+        }
+
+        .food-details h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .food-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .food-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-available {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+        }
+
+        .status-outdated {
+            background-color: rgba(117, 117, 117, 0.2);
+            color: var(--gray);
+        }
+
+        .status-requested {
+            background-color: rgba(33, 150, 243, 0.2);
+            color: var(--requested);
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .search-filter .form-control {
+            flex: 1;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            border-bottom-color: var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Map Section */
+        .map-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            height: 400px;
+        }
+
+        .map-section h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            background-color: var(--light-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--light-gray);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .search-filter {
+                flex-direction: column;
+            }
+
+            .role-selection {
+                flex-direction: column;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        /* Hidden elements */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: var(--white);
+            font-weight: 600;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(150%);
+            transition: transform 0.3s;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background-color: var(--success);
+        }
+
+        .notification.error {
+            background-color: var(--danger);
+        }
+
+        .notification.info {
+            background-color: var(--requested);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            transform: translateY(-20px);
+            transition: transform 0.3s;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .donation-history {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-info h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .history-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .history-status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Notification Bell */
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .notification-bell i {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .notification-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .notification-panel {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            width: 300px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: none;
+        }
+
+        .notification-panel.show {
+            display: block;
+        }
+
+        .notification-header {
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .notification-item:hover {
+            background-color: var(--light);
+        }
+
+        .notification-item.unread {
+            background-color: rgba(33, 150, 243, 0.1);
+        }
+
+        .notification-item p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .notification-time {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* New styles for phone number and enhanced notifications */
+        .phone-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .phone-display i {
+            color: var(--primary);
+        }
+        
+        .donation-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .notification-item.actions {
+            padding-bottom: 10px;
+        }
+        
+        .notification-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .history-actions {
+            margin-top: 10px;
+        }
+        
+        .completed-status {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-utensils"></i>
+                    Joy Feast
+                </a>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="auth-buttons">
+                    <div id="notificationBell" class="notification-bell hidden">
+                        <i class="fas fa-bell"></i>
+                        <span id="notificationCount" class="notification-count">0</span>
+                        <div id="notificationPanel" class="notification-panel">
+                            <div class="notification-header">
+                                <h4>Notifications</h4>
+                                <button id="markAllRead">Mark all as read</button>
+                            </div>
+                            <div id="notificationList" class="notification-list">
+                                <!-- Notifications will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                    <button id="loginBtn" class="btn btn-secondary">Login</button>
+                    <button id="signupBtn" class="btn btn-primary">Sign Up</button>
+                    <button id="logoutBtn" class="btn btn-outline hidden">Logout</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Share Food, Spread Joy</h1>
+            <p>Join our community to reduce food waste and help those in need. Donate your surplus food or request donations for your organization.</p>
+            <button id="heroSignupBtn" class="btn btn-primary">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3 id="totalMealsSaved">0</h3>
+                    <p>Meals Saved from Waste</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3 id="totalDonors">0</h3>
+                    <p>Active Donors</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3 id="totalReceivers">0</h3>
+                    <p>Organizations Helped</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3 id="co2Reduced">0</h3>
+                    <p>KG of CO2 Reduced</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Donors Section -->
+    <section class="top-donors-section">
+        <div class="container">
+            <h2>Our Top Donors</h2>
+            <div id="topDonorsGrid" class="donors-grid">
+                <!-- Top donors will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Joy Feast</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create an Account</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input type="text" id="signupUsername" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPhone">Phone Number</label>
+                    <input type="tel" id="signupPhone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Role Selection Modal -->
+    <div id="roleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Your Role</h2>
+            </div>
+            <p>Please choose how you'd like to use Joy Feast:</p>
+            <div class="role-selection">
+                <div class="role-option" data-role="donor">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Food Donor</h3>
+                    <p>Individuals or restaurants who want to share food</p>
+                </div>
+                <div class="role-option" data-role="receiver">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Food Receiver</h3>
+                    <p>NGOs, shelters, etc. who request food</p>
+                </div>
+            </div>
+            <button id="confirmRole" class="btn btn-primary" style="width: 100%; margin-top: 20px;" disabled>Confirm Role</button>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard hidden">
+        <div class="container">
+            <!-- Donor Dashboard -->
+            <div id="donorDashboard" class="hidden">
+                <div class="dashboard-header">
+                    <div class="welcome-message">
+                        <h2>Welcome, <span id="donorName">Donor</span>!</h2>
+                        <p>Share your surplus food with those in need</p>
+                    </div>
+                    <div class="tabs">
+                        <div class="tab active" data-tab="donate">Donate Food</div>
+                        <div class="tab" data-tab="history">Donation History</div>
+                    </div>
+                </div>
+
+                <!-- Donation Form -->
+                <div id="donateTab" class="tab-content">
+                    <div class="food-form">
+                        <h3>Share Food Details</h3>
+                        <form id="foodDonationForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="foodType">Kind of Food</label>
+                                    <select id="foodType" class="form-control" required>
+                                        <option value="">Select food type</option>
+                                        <option value="Vegetarian">Vegetarian</option>
+                                        <option value="Non-Vegetarian">Non-Vegetarian</option>
+                                        <option value="Vegan">Vegan</option>
+                                        <option value="Bakery">Bakery</option>
+                                        <option value="Fruits">Fruits</option>
+                                        <option value="Vegetables">Vegetables</option>
+                                        <option value="Prepared Meals">Prepared Meals</option>
+                                        <option value="Dairy">Dairy</option>
+                                        <option value="Beverages">Beverages</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="foodQuantity">Quantity</label>
+                                    <input type="text" id="foodQuantity" class="form-control" placeholder="e.g., 5 plates, 2 kg" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="foodAddress">Pickup Address</label>
+                                    <textarea id="foodAddress" class="form-control" rows="3" placeholder="Enter full address" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="date" id="expiryDate" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="foodImage">Food Picture</label>
+                                    <input type="file" id="foodImage" class="form-control" accept="image/*">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Share Food</button>
+                        </form>
+                    </div>
+
+                    <h3>Your Active Food Donations</h3>
+                    <div id="donorFoodList" class="food-grid">
+                        <!-- Food cards will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Donation History -->
+                <div id="historyTab" class="tab-content hidden">
+                    <div class="donation-history">
+                        <h3>Your Donation History</h3>
+                        <div id="donationHistoryList">
+                            <!-- History items will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receiver Dashboard -->
+            <div id="receiverDashboard" class="hidden">
+                <div class="dashboard-header">
+                    <div class="welcome-message">
+                        <h2>Welcome, <span id="receiverName">Receiver</span>!</h2>
+                        <p>Find available food donations for your organization</p>
+                    </div>
+                    <div class="search-filter">
+                        <input type="text" id="searchFood" class="form-control" placeholder="Search by food type or location">
+                        <select id="filterFood" class="form-control">
+                            <option value="">All Food Types</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                            <option value="Vegan">Vegan</option>
+                            <option value="Bakery">Bakery</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Prepared Meals">Prepared Meals</option>
+                            <option value="Dairy">Dairy</option>
+                            <option value="Beverages">Beverages</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Map Section -->
+                <div class="map-section">
+                    <h3>Food Donations Near You</h3>
+                    <div id="map">
+                        <!-- Map will be displayed here -->
+                    </div>
+                </div>
+
+                <div id="receiverFoodList" class="food-grid">
+                    <!-- Food cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Joy Feast</h3>
+                    <p>Joy Feast is a platform connecting food donors with organizations that serve people in need, reducing food waste and fighting hunger.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@joyfeast.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Joy Feast. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for demonstration
+        let users = JSON.parse(localStorage.getItem('joyFeastUsers')) || [];
+        let foodDonations = JSON.parse(localStorage.getItem('joyFeastDonations')) || [];
+        let donationHistory = JSON.parse(localStorage.getItem('joyFeastHistory')) || [];
+        let notifications = JSON.parse(localStorage.getItem('joyFeastNotifications')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('joyFeastCurrentUser')) || null;
+
+        // DOM Elements
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const heroSignupBtn = document.getElementById('heroSignupBtn');
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const roleModal = document.getElementById('roleModal');
+        const showSignup = document.getElementById('showSignup');
+        const showLogin = document.getElementById('showLogin');
+        const closeModals = document.querySelectorAll('.close-modal');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const roleOptions = document.querySelectorAll('.role-option');
+        const confirmRole = document.getElementById('confirmRole');
+        const dashboard = document.getElementById('dashboard');
+        const donorDashboard = document.getElementById('donorDashboard');
+        const receiverDashboard = document.getElementById('receiverDashboard');
+        const foodDonationForm = document.getElementById('foodDonationForm');
+        const donorFoodList = document.getElementById('donorFoodList');
+        const receiverFoodList = document.getElementById('receiverFoodList');
+        const searchFood = document.getElementById('searchFood');
+        const filterFood = document.getElementById('filterFood');
+        const notification = document.getElementById('notification');
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const donationHistoryList = document.getElementById('donationHistoryList');
+        const topDonorsGrid = document.getElementById('topDonorsGrid');
+        const totalMealsSaved = document.getElementById('totalMealsSaved');
+        const totalDonors = document.getElementById('totalDonors');
+        const totalReceivers = document.getElementById('totalReceivers');
+        const co2Reduced = document.getElementById('co2Reduced');
+        const notificationBell = document.getElementById('notificationBell');
+        const notificationCount = document.getElementById('notificationCount');
+        const notificationPanel = document.getElementById('notificationPanel');
+        const notificationList = document.getElementById('notificationList');
+        const markAllRead = document.getElementById('markAllRead');
+        const mapElement = document.getElementById('map');
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            updateUI();
+            loadFoodDonations();
+            loadDonationHistory();
+            updateStats();
+            loadTopDonors();
+            loadNotifications();
+            
+            // Add some sample data if empty
+            if (foodDonations.length === 0) {
+                const sampleDonations = [
+                    {
+                        id: 1,
+                        donorId: 'sample',
+                        foodType: 'Vegetarian',
+                        quantity: '10 plates',
+                        address: '123 Main St, City Center',
+                        expiryDate: '2023-12-15',
+                        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        status: 'available',
+                        donorName: 'Green Restaurant',
+                        donorPhone: '+1 555-1234',
+                        latitude: 40.7128,
+                        longitude: -74.0060
+                    },
+                    {
+                        id: 2,
+                        donorId: 'sample',
+                        foodType: 'Bakery',
+                        quantity: '5 boxes',
+                        address: '456 Oak Ave, Downtown',
+                        expiryDate: '2023-12-10',
+                        image: 'https://images.unsplash.com/photo-1535140728329-6f10fb7f4295?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        status: 'available',
+                        donorName: 'Bakery Delight',
+                        donorPhone: '+1 555-5678',
+                        latitude: 40.7589,
+                        longitude: -73.9851
+                    },
+                    {
+                        id: 3,
+                        donorId: 'sample',
+                        foodType: 'Fruits',
+                        quantity: '8 kg',
+                        address: '789 Pine Rd, Suburb',
+                        expiryDate: '2023-12-05',
+                        image: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        status: 'outdated',
+                        donorName: 'Fresh Market',
+                        donorPhone: '+1 555-9012',
+                        latitude: 40.7505,
+                        longitude: -73.9934
+                    }
+                ];
+                foodDonations = sampleDonations;
+                localStorage.setItem('joyFeastDonations', JSON.stringify(foodDonations));
+            }
+
+            // Initialize map
+            initializeMap();
+        });
+
+        // Event Listeners
+        loginBtn.addEventListener('click', () => showModal(loginModal));
+        signupBtn.addEventListener('click', () => showModal(signupModal));
+        heroSignupBtn.addEventListener('click', () => showModal(signupModal));
+        logoutBtn.addEventListener('click', logout);
+
+        showSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideModal(loginModal);
+            showModal(signupModal);
+        });
+
+        showLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideModal(signupModal);
+            showModal(loginModal);
+        });
+
+        closeModals.forEach(btn => {
+            btn.addEventListener('click', () => {
+                hideModal(loginModal);
+                hideModal(signupModal);
+                hideModal(roleModal);
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) hideModal(loginModal);
+            if (e.target === signupModal) hideModal(signupModal);
+            if (e.target === roleModal) hideModal(roleModal);
+        });
+
+        loginForm.addEventListener('submit', handleLogin);
+        signupForm.addEventListener('submit', handleSignup);
+
+        roleOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                roleOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                confirmRole.disabled = false;
+            });
+        });
+
+        confirmRole.addEventListener('click', confirmUserRole);
+        foodDonationForm.addEventListener('submit', handleFoodDonation);
+        searchFood.addEventListener('input', filterFoodDonations);
+        filterFood.addEventListener('change', filterFoodDonations);
+
+        // Tab switching
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.getAttribute('data-tab');
+                
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                tabContents.forEach(content => content.classList.add('hidden'));
+                document.getElementById(`${tabName}Tab`).classList.remove('hidden');
+            });
+        });
+
+        // Notification bell
+        notificationBell.addEventListener('click', () => {
+            notificationPanel.classList.toggle('show');
+        });
+
+        markAllRead.addEventListener('click', markNotificationsAsRead);
+
+        // Functions
+        function showModal(modal) {
+            modal.classList.add('show');
+        }
+
+        function hideModal(modal) {
+            modal.classList.remove('show');
+        }
+
+        function showNotification(message, type = 'success') {
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                if (user.verified) {
+                    currentUser = user;
+                    localStorage.setItem('joyFeastCurrentUser', JSON.stringify(currentUser));
+                    hideModal(loginModal);
+                    updateUI();
+                    showNotification('Login successful!', 'success');
+                } else {
+                    showNotification('Please verify your email before logging in.', 'error');
+                }
+            } else {
+                showNotification('Invalid email or password.', 'error');
+            }
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            const username = document.getElementById('signupUsername').value;
+            const email = document.getElementById('signupEmail').value;
+            const phone = document.getElementById('signupPhone').value;
+            const password = document.getElementById('signupPassword').value;
+            
+            // Check if user already exists
+            if (users.find(u => u.email === email)) {
+                showNotification('User with this email already exists.', 'error');
+                return;
+            }
+            
+            // Create new user (not verified yet)
+            const newUser = {
+                id: Date.now().toString(),
+                username,
+                email,
+                phone,
+                password, // In a real app, this would be hashed
+                verified: false,
+                role: null,
+                donationsCount: 0,
+                totalQuantity: 0
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('joyFeastUsers', JSON.stringify(users));
+            
+            hideModal(signupModal);
+            showModal(roleModal);
+            
+            // Set current user to the newly created one
+            currentUser = newUser;
+            localStorage.setItem('joyFeastCurrentUser', JSON.stringify(currentUser));
+            
+            showNotification('Account created! Please verify your email.', 'success');
+            
+            // Simulate sending verification email
+            setTimeout(() => {
+                showNotification('Verification email sent! Please check your inbox.', 'success');
+            }, 1000);
+        }
+
+        function confirmUserRole() {
+            const selectedRole = document.querySelector('.role-option.selected').dataset.role;
+            
+            // Update user with role and mark as verified (for demo purposes)
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            if (userIndex !== -1) {
+                users[userIndex].role = selectedRole;
+                users[userIndex].verified = true; // Auto-verify for demo
+                localStorage.setItem('joyFeastUsers', JSON.stringify(users));
+                
+                currentUser = users[userIndex];
+                localStorage.setItem('joyFeastCurrentUser', JSON.stringify(currentUser));
+            }
+            
+            hideModal(roleModal);
+            updateUI();
+            showNotification(`Account verified! Welcome as a ${selectedRole}.`, 'success');
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('joyFeastCurrentUser');
+            updateUI();
+            showNotification('Logged out successfully.', 'success');
+        }
+
+        function updateUI() {
+            if (currentUser) {
+                loginBtn.classList.add('hidden');
+                signupBtn.classList.add('hidden');
+                logoutBtn.classList.remove('hidden');
+                dashboard.classList.remove('hidden');
+                notificationBell.classList.remove('hidden');
+                
+                if (currentUser.role === 'donor') {
+                    donorDashboard.classList.remove('hidden');
+                    receiverDashboard.classList.add('hidden');
+                    document.getElementById('donorName').textContent = currentUser.username;
+                } else if (currentUser.role === 'receiver') {
+                    donorDashboard.classList.add('hidden');
+                    receiverDashboard.classList.remove('hidden');
+                    document.getElementById('receiverName').textContent = currentUser.username;
+                }
+                
+                loadFoodDonations();
+                loadDonationHistory();
+                loadNotifications();
+            } else {
+                loginBtn.classList.remove('hidden');
+                signupBtn.classList.remove('hidden');
+                logoutBtn.classList.add('hidden');
+                dashboard.classList.add('hidden');
+                notificationBell.classList.add('hidden');
+            }
+        }
+
+        function handleFoodDonation(e) {
+            e.preventDefault();
+            const foodType = document.getElementById('foodType').value;
+            const quantity = document.getElementById('foodQuantity').value;
+            const address = document.getElementById('foodAddress').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const imageInput = document.getElementById('foodImage');
+            
+            // Simple validation
+            if (!foodType || !quantity || !address || !expiryDate) {
+                showNotification('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Check if expiry date is in the future
+            const today = new Date().toISOString().split('T')[0];
+            if (expiryDate < today) {
+                showNotification('Expiry date must be in the future.', 'error');
+                return;
+            }
+            
+            // Create new food donation
+            const newDonation = {
+                id: Date.now(),
+                donorId: currentUser.id,
+                foodType,
+                quantity,
+                address,
+                expiryDate,
+                image: imageInput.files.length > 0 ? URL.createObjectURL(imageInput.files[0]) : 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                status: 'available',
+                donorName: currentUser.username,
+                donorPhone: currentUser.phone,
+                requestedBy: null,
+                requestedByPhone: null,
+                latitude: 40.7128 + (Math.random() - 0.5) * 0.1, // Random coordinates for demo
+                longitude: -74.0060 + (Math.random() - 0.5) * 0.1
+            };
+            
+            foodDonations.push(newDonation);
+            localStorage.setItem('joyFeastDonations', JSON.stringify(foodDonations));
+            
+            // Update donor stats
+            updateDonorStats(currentUser.id, quantity);
+            
+            // Create notification for receivers
+            createNotificationForReceivers(newDonation);
+            
+            // Reset form
+            foodDonationForm.reset();
+            
+            // Update UI
+            loadFoodDonations();
+            updateStats();
+            loadTopDonors();
+            showNotification('Your food details have been shared successfully!', 'success');
+        }
+
+        function updateDonorStats(donorId, quantity) {
+            const userIndex = users.findIndex(u => u.id === donorId);
+            if (userIndex !== -1) {
+                if (!users[userIndex].donationsCount) users[userIndex].donationsCount = 0;
+                if (!users[userIndex].totalQuantity) users[userIndex].totalQuantity = 0;
+                
+                users[userIndex].donationsCount += 1;
+                
+                // Extract numeric value from quantity string (e.g., "5 plates" -> 5)
+                const quantityValue = parseInt(quantity) || 0;
+                users[userIndex].totalQuantity += quantityValue;
+                
+                localStorage.setItem('joyFeastUsers', JSON.stringify(users));
+            }
+        }
+
+        function createNotificationForReceivers(donation) {
+            const receiverUsers = users.filter(u => u.role === 'receiver' && u.verified);
+            
+            receiverUsers.forEach(receiver => {
+                const notification = {
+                    id: Date.now(),
+                    userId: receiver.id,
+                    type: 'new_donation',
+                    title: 'New Food Donation Available',
+                    message: `${donation.donorName} has shared ${donation.quantity} of ${donation.foodType} near ${donation.address.split(',')[0]}`,
+                    timestamp: new Date().toISOString(),
+                    read: false,
+                    donationId: donation.id
+                };
+                
+                notifications.push(notification);
+            });
+            
+            localStorage.setItem('joyFeastNotifications', JSON.stringify(notifications));
+            loadNotifications();
+        }
+
+        function loadFoodDonations() {
+            // Update status based on expiry date
+            const today = new Date().toISOString().split('T')[0];
+            foodDonations.forEach(donation => {
+                if (donation.status !== 'requested' && donation.status !== 'completed') {
+                    donation.status = donation.expiryDate < today ? 'outdated' : 'available';
+                }
+            });
+            localStorage.setItem('joyFeastDonations', JSON.stringify(foodDonations));
+            
+            // Load donations for donor
+            if (currentUser && currentUser.role === 'donor') {
+                const userDonations = foodDonations.filter(d => d.donorId === currentUser.id && d.status !== 'completed');
+                donorFoodList.innerHTML = '';
+                
+                if (userDonations.length === 0) {
+                    donorFoodList.innerHTML = '<p>You haven\'t shared any food yet.</p>';
+                } else {
+                    userDonations.forEach(donation => {
+                        donorFoodList.appendChild(createFoodCard(donation, true));
+                    });
+                }
+            }
+            
+            // Load donations for receiver
+            if (currentUser && currentUser.role === 'receiver') {
+                const availableDonations = foodDonations.filter(d => d.status === 'available');
+                receiverFoodList.innerHTML = '';
+                
+                if (availableDonations.length === 0) {
+                    receiverFoodList.innerHTML = '<p>No available food donations at the moment.</p>';
+                } else {
+                    availableDonations.forEach(donation => {
+                        receiverFoodList.appendChild(createFoodCard(donation, false));
+                    });
+                }
+                
+                // Update map
+                updateMap(availableDonations);
+            }
+        }
+
+        function createFoodCard(donation, isDonorView) {
+            const card = document.createElement('div');
+            card.className = `food-card ${donation.status === 'outdated' ? 'expired' : ''} ${donation.status === 'requested' ? 'requested' : ''}`;
+            
+            let phoneDisplay = '';
+            if (!isDonorView && donation.status === 'available' && donation.donorPhone) {
+                phoneDisplay = `<div class="phone-display"><i class="fas fa-phone"></i> ${donation.donorPhone}</div>`;
+            }
+            
+            if (isDonorView && donation.status === 'requested' && donation.requestedByPhone) {
+                phoneDisplay = `<div class="phone-display"><i class="fas fa-phone"></i> ${donation.requestedByPhone}</div>`;
+            }
+            
+            let actionButtons = '';
+            if (isDonorView) {
+                if (donation.status === 'requested') {
+                    actionButtons = `
+                        <div class="donation-actions">
+                            <button class="btn btn-primary btn-small mark-received" data-id="${donation.id}">Mark as Received</button>
+                            <button class="btn btn-outline btn-small cancel-request" data-id="${donation.id}">Cancel Request</button>
+                        </div>
+                    `;
+                }
+            } else {
+                if (donation.status === 'available') {
+                    actionButtons = `<button class="btn btn-request" style="width: 100%; margin-top: 15px;">Request Food</button>`;
+                }
+            }
+            
+            card.innerHTML = `
+                <div class="food-image" style="background-image: url('${donation.image}')"></div>
+                <div class="food-details">
+                    <h3>${donation.foodType}</h3>
+                    <div class="food-meta">
+                        <span><i class="fas fa-user"></i> ${isDonorView ? 'You' : donation.donorName}</span>
+                        <span><i class="fas fa-map-marker-alt"></i> ${donation.address.split(',')[0]}</span>
+                    </div>
+                    <p><i class="fas fa-weight-hanging"></i> Quantity: ${donation.quantity}</p>
+                    <p><i class="fas fa-calendar-alt"></i> Expires: ${formatDate(donation.expiryDate)}</p>
+                    ${phoneDisplay}
+                    <div class="food-status ${donation.status === 'available' ? 'status-available' : donation.status === 'outdated' ? 'status-outdated' : donation.status === 'completed' ? 'completed-status' : 'status-requested'}">
+                        ${donation.status === 'available' ? 'Available' : donation.status === 'outdated' ? 'Outdated' : donation.status === 'completed' ? 'Completed' : 'Requested'}
+                    </div>
+                    ${isDonorView && donation.status === 'requested' ? 
+                        `<p style="margin-top: 10px; color: var(--requested); font-weight: 600;"><i class="fas fa-info-circle"></i> Requested by ${donation.requestedBy}</p>` 
+                        : ''}
+                    ${actionButtons}
+                </div>
+            `;
+            
+            if (!isDonorView && donation.status === 'available') {
+                const requestBtn = card.querySelector('button');
+                requestBtn.addEventListener('click', () => {
+                    requestFood(donation);
+                });
+            }
+            
+            if (isDonorView && donation.status === 'requested') {
+                const markReceivedBtn = card.querySelector('.mark-received');
+                const cancelRequestBtn = card.querySelector('.cancel-request');
+                
+                markReceivedBtn.addEventListener('click', () => {
+                    markDonationAsReceived(donation.id);
+                });
+                
+                cancelRequestBtn.addEventListener('click', () => {
+                    cancelFoodRequest(donation.id);
+                });
+            }
+            
+            return card;
+        }
+
+        function requestFood(donation) {
+            // Update donation status
+            const donationIndex = foodDonations.findIndex(d => d.id === donation.id);
+            if (donationIndex !== -1) {
+                foodDonations[donationIndex].status = 'requested';
+                foodDonations[donationIndex].requestedBy = currentUser.username;
+                foodDonations[donationIndex].requestedById = currentUser.id;
+                foodDonations[donationIndex].requestedByPhone = currentUser.phone;
+                foodDonations[donationIndex].requestedDate = new Date().toISOString();
+                
+                localStorage.setItem('joyFeastDonations', JSON.stringify(foodDonations));
+                
+                // Add to donation history
+                const historyItem = {
+                    id: Date.now(),
+                    donationId: donation.id,
+                    donorId: donation.donorId,
+                    donorName: donation.donorName,
+                    donorPhone: donation.donorPhone,
+                    receiverId: currentUser.id,
+                    receiverName: currentUser.username,
+                    receiverPhone: currentUser.phone,
+                    foodType: donation.foodType,
+                    quantity: donation.quantity,
+                    address: donation.address,
+                    requestDate: new Date().toISOString(),
+                    status: 'requested'
+                };
+                
+                donationHistory.push(historyItem);
+                localStorage.setItem('joyFeastHistory', JSON.stringify(donationHistory));
+                
+                // Create notification for donor
+                const donorNotification = {
+                    id: Date.now(),
+                    userId: donation.donorId,
+                    type: 'food_request',
+                    title: 'Food Request Received',
+                    message: `${currentUser.username} has requested your ${donation.foodType} donation. Contact: ${currentUser.phone}`,
+                    timestamp: new Date().toISOString(),
+                    read: false,
+                    donationId: donation.id,
+                    requesterId: currentUser.id,
+                    actions: true
+                };
+                
+                notifications.push(donorNotification);
+                localStorage.setItem('joyFeastNotifications', JSON.stringify(notifications));
+                
+                // Simulate email notification to donor
+                showNotification(`Food request sent to ${donation.donorName}. They will contact you soon!`, 'success');
+                
+                // Update UI
+                loadFoodDonations();
+                loadDonationHistory();
+                loadNotifications();
+            }
+        }
+
+        function markDonationAsReceived(donationId) {
+            const donationIndex = foodDonations.findIndex(d => d.id === donationId);
+            if (donationIndex !== -1) {
+                foodDonations[donationIndex].status = 'completed';
+                foodDonations[donationIndex].completedDate = new Date().toISOString();
+                
+                localStorage.setItem('joyFeastDonations', JSON.stringify(foodDonations));
+                
+                // Update donation history
+                const historyIndex = donationHistory.findIndex(h => h.donationId === donationId);
+                if (historyIndex !== -1) {
+                    donationHistory[historyIndex].status = 'completed';
+                    donationHistory[historyIndex].completedDate = new Date().toISOString();
+                    localStorage.setItem('joyFeastHistory', JSON.stringify(donationHistory));
+                }
+                
+                // Create notification for receiver
+                const receiverNotification = {
+                    id: Date.now(),
+                    userId: foodDonations[donationIndex].requestedById,
+                    type: 'donation_completed',
+                    title: 'Donation Marked as Received',
+                    message: `${currentUser.username} has marked the ${foodDonations[donationIndex].foodType} donation as received. Thank you!`,
+                    timestamp: new Date().toISOString(),
+                    read: false
+                };
+                
+                notifications.push(receiverNotification);
+                localStorage.setItem('joyFeastNotifications', JSON.stringify(notifications));
+                
+                showNotification('Donation marked as received!', 'success');
+                
+                // Update UI
+                loadFoodDonations();
+                loadDonationHistory();
+                loadNotifications();
+                updateStats();
+            }
+        }
+
+        function cancelFoodRequest(donationId) {
+            const donationIndex = foodDonations.findIndex(d => d.id === donationId);
+            if (donationIndex !== -1) {
+                foodDonations[donationIndex].status = 'available';
+                foodDonations[donationIndex].requestedBy = null;
+                foodDonations[donationIndex].requestedById = null;
+                foodDonations[donationIndex].requestedByPhone = null;
+                
+                localStorage.setItem('joyFeastDonations', JSON.stringify(foodDonations));
+                
+                // Update donation history
+                const historyIndex = donationHistory.findIndex(h => h.donationId === donationId);
+                if (historyIndex !== -1) {
+                    donationHistory[historyIndex].status = 'cancelled';
+                    localStorage.setItem('joyFeastHistory', JSON.stringify(donationHistory));
+                }
+                
+                // Create notification for receiver
+                const receiverNotification = {
+                    id: Date.now(),
+                    userId: foodDonations[donationIndex].requestedById,
+                    type: 'request_cancelled',
+                    title: 'Food Request Cancelled',
+                    message: `${currentUser.username} has cancelled the request for ${foodDonations[donationIndex].foodType}.`,
+                    timestamp: new Date().toISOString(),
+                    read: false
+                };
+                
+                notifications.push(receiverNotification);
+                localStorage.setItem('joyFeastNotifications', JSON.stringify(notifications));
+                
+                showNotification('Food request cancelled.', 'info');
+                
+                // Update UI
+                loadFoodDonations();
+                loadDonationHistory();
+                loadNotifications();
+            }
+        }
+
+        function filterFoodDonations() {
+            if (!currentUser || currentUser.role !== 'receiver') return;
+            
+            const searchTerm = searchFood.value.toLowerCase();
+            const filterValue = filterFood.value;
+            
+            const availableDonations = foodDonations.filter(d => d.status === 'available');
+            let filteredDonations = availableDonations;
+            
+            if (searchTerm) {
+                filteredDonations = filteredDonations.filter(d => 
+                    d.foodType.toLowerCase().includes(searchTerm) || 
+                    d.address.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            if (filterValue) {
+                filteredDonations = filteredDonations.filter(d => d.foodType === filterValue);
+            }
+            
+            receiverFoodList.innerHTML = '';
+            
+            if (filteredDonations.length === 0) {
+                receiverFoodList.innerHTML = '<p>No matching food donations found.</p>';
+            } else {
+                filteredDonations.forEach(donation => {
+                    receiverFoodList.appendChild(createFoodCard(donation, false));
+                });
+            }
+            
+            // Update map with filtered donations
+            updateMap(filteredDonations);
+        }
+
+        function loadDonationHistory() {
+            if (!currentUser) return;
+            
+            donationHistoryList.innerHTML = '';
+            
+            let userHistory;
+            if (currentUser.role === 'donor') {
+                userHistory = donationHistory.filter(h => h.donorId === currentUser.id);
+            } else {
+                userHistory = donationHistory.filter(h => h.receiverId === currentUser.id);
+            }
+            
+            if (userHistory.length === 0) {
+                donationHistoryList.innerHTML = '<p>No donation history found.</p>';
+                return;
+            }
+            
+            userHistory.sort((a, b) => new Date(b.requestDate) - new Date(a.requestDate));
+            
+            userHistory.forEach(history => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                
+                let phoneInfo = '';
+                if (currentUser.role === 'donor') {
+                    phoneInfo = `<p>Receiver Phone: ${history.receiverPhone}</p>`;
+                } else {
+                    phoneInfo = `<p>Donor Phone: ${history.donorPhone}</p>`;
+                }
+                
+                historyItem.innerHTML = `
+                    <div class="history-info">
+                        <h4>${history.foodType} - ${history.quantity}</h4>
+                        <p>${currentUser.role === 'donor' ? 'Requested by: ' + history.receiverName : 'Donated by: ' + history.donorName}</p>
+                        ${phoneInfo}
+                        <p>${formatDate(history.requestDate)}</p>
+                        ${history.completedDate ? `<p>Completed: ${formatDate(history.completedDate)}</p>` : ''}
+                    </div>
+                    <div class="history-status ${history.status === 'requested' ? 'status-requested' : history.status === 'completed' ? 'completed-status' : 'status-outdated'}">
+                        ${history.status === 'requested' ? 'Requested' : history.status === 'completed' ? 'Completed' : 'Cancelled'}
+                    </div>
+                `;
+                
+                donationHistoryList.appendChild(historyItem);
+            });
+        }
+
+        function updateStats() {
+            // Calculate total meals saved (sum of all completed donations)
+            let totalMeals = 0;
+            donationHistory.forEach(history => {
+                if (history.status === 'completed') {
+                    const quantityValue = parseInt(history.quantity) || 0;
+                    totalMeals += quantityValue;
+                }
+            });
+            
+            totalMealsSaved.textContent = totalMeals.toLocaleString();
+            
+            // Count active donors and receivers
+            const activeDonors = users.filter(u => u.role === 'donor' && u.verified).length;
+            const activeReceivers = users.filter(u => u.role === 'receiver' && u.verified).length;
+            
+            totalDonors.textContent = activeDonors;
+            totalReceivers.textContent = activeReceivers;
+            
+            // Calculate CO2 reduced (estimate: 1kg of food waste = 2.5kg CO2)
+            const co2 = totalMeals * 2.5;
+            co2Reduced.textContent = co2.toLocaleString();
+        }
+
+        function loadTopDonors() {
+            topDonorsGrid.innerHTML = '';
+            
+            // Get donors with their stats
+            const donors = users.filter(u => u.role === 'donor' && u.verified);
+            
+            // Sort by total quantity donated
+            donors.sort((a, b) => (b.totalQuantity || 0) - (a.totalQuantity || 0));
+            
+            // Take top 3
+            const topDonors = donors.slice(0, 3);
+            
+            if (topDonors.length === 0) {
+                topDonorsGrid.innerHTML = '<p>No donors available yet.</p>';
+                return;
+            }
+            
+            topDonors.forEach((donor, index) => {
+                const donorCard = document.createElement('div');
+                let rankClass = '';
+                let medalClass = '';
+                
+                if (index === 0) {
+                    rankClass = 'rank-1';
+                    medalClass = 'gold';
+                } else if (index === 1) {
+                    rankClass = 'rank-2';
+                    medalClass = 'silver';
+                } else {
+                    rankClass = 'rank-3';
+                    medalClass = 'bronze';
+                }
+                
+                donorCard.className = `donor-card ${medalClass}`;
+                donorCard.innerHTML = `
+                    <div class="donor-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="donor-rank ${rankClass}">Top ${index + 1}</div>
+                    <h3>${donor.username}</h3>
+                    <div class="donor-stats">
+                        <div class="donor-stat">
+                            <h4>${donor.donationsCount || 0}</h4>
+                            <p>Donations</p>
+                        </div>
+                        <div class="donor-stat">
+                            <h4>${donor.totalQuantity || 0}</h4>
+                            <p>Meals</p>
+                        </div>
+                    </div>
+                `;
+                
+                topDonorsGrid.appendChild(donorCard);
+            });
+        }
+
+        function loadNotifications() {
+            if (!currentUser) return;
+            
+            const userNotifications = notifications.filter(n => n.userId === currentUser.id);
+            const unreadCount = userNotifications.filter(n => !n.read).length;
+            
+            notificationCount.textContent = unreadCount;
+            notificationList.innerHTML = '';
+            
+            if (userNotifications.length === 0) {
+                notificationList.innerHTML = '<p style="padding: 15px; text-align: center;">No notifications</p>';
+                return;
+            }
+            
+            // Sort by timestamp (newest first)
+            userNotifications.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            
+            userNotifications.forEach(notif => {
+                const notificationItem = document.createElement('div');
+                notificationItem.className = `notification-item ${notif.read ? '' : 'unread'} ${notif.actions ? 'actions' : ''}`;
+                
+                let actionButtons = '';
+                if (notif.actions && notif.type === 'food_request' && currentUser.role === 'donor') {
+                    actionButtons = `
+                        <div class="notification-actions">
+                            <button class="btn btn-primary btn-small mark-received-notif" data-id="${notif.donationId}">Mark as Received</button>
+                            <button class="btn btn-outline btn-small cancel-request-notif" data-id="${notif.donationId}">Cancel Request</button>
+                        </div>
+                    `;
+                }
+                
+                notificationItem.innerHTML = `
+                    <p><strong>${notif.title}</strong></p>
+                    <p>${notif.message}</p>
+                    <div class="notification-time">${formatTime(notif.timestamp)}</div>
+                    ${actionButtons}
+                `;
+                
+                notificationItem.addEventListener('click', (e) => {
+                    // Don't mark as read if clicking on action buttons
+                    if (!e.target.closest('.notification-actions')) {
+                        const notifIndex = notifications.findIndex(n => n.id === notif.id);
+                        if (notifIndex !== -1) {
+                            notifications[notifIndex].read = true;
+                            localStorage.setItem('joyFeastNotifications', JSON.stringify(notifications));
+                            loadNotifications();
+                        }
+                    }
+                });
+                
+                // Add event listeners for action buttons in notifications
+                if (notif.actions) {
+                    const markReceivedBtn = notificationItem.querySelector('.mark-received-notif');
+                    const cancelRequestBtn = notificationItem.querySelector('.cancel-request-notif');
+                    
+                    if (markReceivedBtn) {
+                        markReceivedBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            markDonationAsReceived(notif.donationId);
+                            notificationPanel.classList.remove('show');
+                        });
+                    }
+                    
+                    if (cancelRequestBtn) {
+                        cancelRequestBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            cancelFoodRequest(notif.donationId);
+                            notificationPanel.classList.remove('show');
+                        });
+                    }
+                }
+                
+                notificationList.appendChild(notificationItem);
+            });
+        }
+
+        function markNotificationsAsRead() {
+            notifications.forEach(notif => {
+                if (notif.userId === currentUser.id) {
+                    notif.read = true;
+                }
+            });
+            
+            localStorage.setItem('joyFeastNotifications', JSON.stringify(notifications));
+            loadNotifications();
+        }
+
+        function initializeMap() {
+            // Simple map implementation using div with background
+            mapElement.innerHTML = `
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: #e9ecef;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: #4CAF50; margin-bottom: 15px;"></i>
+                        <h3 style="color: #333; margin-bottom: 10px;">Food Donations Map</h3>
+                        <p style="color: #666;">Map showing available food donations near your location</p>
+                        <p style="color: #999; font-size: 0.9rem; margin-top: 10px;">(In a real implementation, this would be an interactive map)</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateMap(donations) {
+            // In a real implementation, this would update the map with markers for each donation
+            if (donations.length > 0) {
+                mapElement.innerHTML = `
+                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: #e9ecef;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: #4CAF50; margin-bottom: 15px;"></i>
+                            <h3 style="color: #333; margin-bottom: 10px;">${donations.length} Food Donations Nearby</h3>
+                            <p style="color: #666;">Showing available food donations near your location</p>
+                            <div style="margin-top: 20px;">
+                                ${donations.map(d => `<div style="margin-bottom: 10px; padding: 10px; background: white; border-radius: 5px;">
+                                    <strong>${d.foodType}</strong> - ${d.quantity} at ${d.address.split(',')[0]}
+                                </div>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                initializeMap();
+            }
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
+
+        function formatTime(dateString) {
+            const options = { hour: '2-digit', minute: '2-digit', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
+    </script>
+</body>
+</html>
